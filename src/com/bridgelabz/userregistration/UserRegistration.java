@@ -50,6 +50,21 @@ public class UserRegistration {
         }
     }
 
+    public void mobileNumber(String mobileNumber) {
+
+        String MobileNumberPattern = "91[\\s][0-9]{10}";
+
+        Pattern pattern3 = Pattern.compile(MobileNumberPattern);
+        Matcher matcher3 = pattern3.matcher(mobileNumber);
+        Boolean result3 = matcher3.matches();
+
+        if (result3 == true) {
+            System.out.println("Mobile number is valid");
+        } else {
+            System.out.println("Mobile number is not valid");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -67,6 +82,11 @@ public class UserRegistration {
         System.out.println("Enter your Email:");
         String email = scanner.next();
         ur.email(email);
+
+        System.out.println("Enter your mobile number");
+        String mobileNumber = scanner.next();
+        ur.mobileNumber(mobileNumber);
+
     }
 
 }
